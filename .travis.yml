@@ -1,0 +1,13 @@
+language: go
+
+go:
+  - tip
+
+install:
+  - go get -v github.com/Inflatablewoman/go-kms-cli
+
+script: 
+  - go build github.com/Inflatablewoman/go-kms-cli
+
+notifications:
+  email: false
