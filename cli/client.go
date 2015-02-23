@@ -2,11 +2,13 @@ package cli
 
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -21,7 +23,16 @@ func CreateClient() {
 		Exit("Enivronmental Variable: GOKMSCLI_AUTHKEY or GOKMSCLI_URL are empty!  You must set these values!", 2)
 	}
 
-	Client = JSONClient{Client: http.DefaultClient, Endpoint: baseUrl, AuthKey: authKey}
+	client := http.DefaultClient
+
+	ignoreBadTls := os.Getenv("GOKMSCLI_IGNORE_BAD_TLS_CERT")
+	if strings.ToUpper(ignoreBadTls) == "TRUE" {
+		client.Transport = &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		}
+	}
+
+	Client = JSONClient{Client: client, Endpoint: baseUrl, AuthKey: authKey}
 }
 
 // JSONClient is the underlying client for JSON APIs.
