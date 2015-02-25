@@ -22,5 +22,4 @@ func main() {
 	commandLineApp := cli.App("go-kms-cli", "Command line interface for GO-KMS")
 	gokmscli.CreateCommands(commandLineApp)
 	commandLineApp.Run(os.Args)
-
 }

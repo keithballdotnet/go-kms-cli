@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -30,6 +31,8 @@ func CreateClient() {
 		client.Transport = &http.Transport{
 			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 		}
+
+		log.Println("WARNING: Ignore bad TLS certificates is turned ON!  Do not use this in production!")
 	}
 
 	Client = JSONClient{Client: client, Endpoint: baseUrl, AuthKey: authKey}
