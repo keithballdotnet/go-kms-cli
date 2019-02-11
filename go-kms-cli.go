@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	gokmscli "github.com/Inflatablewoman/go-kms-cli/cli"
-	"github.com/jawher/mow.cli"
+	cli "github.com/jawher/mow.cli"
+	gokmscli "github.com/keithballdotnet/go-kms-cli/cli"
 )
 
 // main will start up the application

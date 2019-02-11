@@ -5,7 +5,7 @@ import (
 	//"io/ioutil"
 	"os"
 
-	"github.com/Inflatablewoman/go-kms/kms"
+	"github.com/keithballdotnet/go-kms/kms"
 	"github.com/crackcomm/go-clitable"
 	"github.com/jawher/mow.cli"
 	"log"

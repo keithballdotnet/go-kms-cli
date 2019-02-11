@@ -4,10 +4,10 @@ go:
   - tip
 
 install:
-  - go get -v github.com/Inflatablewoman/go-kms-cli
+  - go get -v github.com/keithballdotnet/go-kms-cli
 
 script: 
-  - go build github.com/Inflatablewoman/go-kms-cli
+  - go build github.com/keithballdotnet/go-kms-cli
 
 notifications:
   email: false
